@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      box-sizing: border-box;
+    }
+    
+    ul{
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+    li{
+      width: 100px;
+      height: 100px;
+      xborder: 1px solid;
+      display: flow-root;
+      background-color:gray;
+    }
+   ul li:nth-child(n+4){
+     margin-left: 100px;
+   }
+   ul li:nth-child(n+7){
+     margin-left: 200px;
+   }
+   ul li:nth-child(3n+4){
+     margin-top: -300px;
+   }
+   div{
+     height: 100px;
+   }
+   div:hover{
+     margin-left: -20px;
+     margin-right: -20px;
+     background-color: red;
+     margin-top: -10px;
+     height: calc(100% + 20px);
+     position: relative;
+     z-index: 3;
+   }
+
+  </style>
+</head>
+<body>
+  <ul>
+    <li><div></div></li>
+    <li><div></div></li>
+    <li><div></div></li>
+    <li><div></div></li>
+    <li><div></div></li>
+    <li><div></div></li>
+    <li><div></div></li>
+    <li><div></div></li>
+    <li><div></div></li>
+  </ul>
+</body>
+</html>
