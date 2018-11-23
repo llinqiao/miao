@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0;
+    }
+    .slider{
+      width: 600px;
+      height: 400px;
+      position: relative;
+      margin: auto;
+      top: 100px;
+    }
+    .slider img{
+      width: 600px;
+      height: 400px;
+    }
+     .slider div{
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: none;
+      transition: display 2s linear;
+    }
+    .slider input{
+      position: relative;
+      top:500px;
+      display: none;
+    }
+    section{
+      position: absolute;
+      z-index: 5;
+      bottom: 30px;
+      right: 20px;
+      width: 120px;
+     
+    }
+    section > label{
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border: 5px solid #666;
+      border-radius: 9999px;
+      margin: 4px;
+      cursor: pointer;
+      position: relative;
+
+    }
+    .slider input:checked +*+*+*+*+ div{
+      display: block
+    }
+
+    .slider span{
+      position: absolute;
+      border: 3px solid  rgba(0, 0, 0, 0.4);
+      top: -3px;
+      left: -3px;
+      border-radius: 9999px;
+    }
+    .slider span:hover {
+      border-color: white;
+      opacity: 0.5;
+    }
+
+
+    .slider div label:hover{
+      background-color: gray;
+      color: white;
+    }
+    
+    div > label{
+      position: absolute;
+      width: 30px;
+      height: 60px;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      text-align: center;
+      line-height: 60px;
+      font-size: 20px;
+      z-index: 4;
+      cursor: pointer;
+      color: gray;
+    }
+    div > label:nth-child(2){
+      right: 0;
+    }
+    
+    .slider input:nth-child(1):checked ~ section label:nth-child(1) span,.slider input:nth-child(2):checked~section label:nth-child(2) span,
+    .slider input:nth-child(3):checked~section label:nth-child(3) span,.slider input:nth-child(4):checked~section label:nth-child(4) span,
+    .slider input:nth-child(5):checked~section label:nth-child(5) span{
+      border-color: white;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div class="slider">
+    <input type="radio" name="slider" id="img1" checked>
+    <input type="radio" name="slider" id="img2">
+    <input type="radio" name="slider" id="img3">
+    <input type="radio" name="slider" id="img4">
+    <input type="radio" name="slider" id="img5">
+    <div>
+      <label class="left" for="img5">&lt;</label>
+      <label class="right" for="img2">&gt;</label>    
+      <img src="https://i1.mifile.cn/a4/xmad_15427181908339_moblU.jpg" alt="">
+    </div>
+    
+    <div>
+      <label class="left" for="img1">&lt;</label>
+      <label class="right" for="img3">&gt;</label>    
+      <img src="https://i1.mifile.cn/a4/xmad_15427030673006_kxsPA.jpg" alt="">
+    </div>
+
+    <div>
+      <label class="left" for="img2">&lt;</label>
+      <label class="right" for="img4">&gt;</label>
+      <img src="https://i1.mifile.cn/a4/xmad_15425931208271_yKAHi.jpg" alt="">
+    </div>
+
+    <div>
+      <label class="left" for="img3">&lt;</label>
+      <label class="right" for="img5">&gt;</label>
+      <img src="https://i1.mifile.cn/a4/xmad_15427625003613_ueNoB.jpg" alt="">
+    </div>
+
+    <div>
+      <label class="left" for="img4">&lt;</label>
+      <label class="right" for="img1">&gt;</label>
+      <img src="https://i1.mifile.cn/a4/xmad_15424384618875_xqQTp.jpg" alt="">
+    </div>
+    
+
+    <section>
+      <label for="img1">
+        <span></span>
+      </label>
+      <label for="img2">
+        <span></span>
+      </label>
+      <label for="img3">
+        <span></span>
+      </label>
+      <label for="img4">
+        <span></span>
+      </label>
+      <label for="img5"> 
+        <span></span>
+      </label>
+    </section>
+</div>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+
+    body{
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url(https://tympanus.net/Tutorials/CSS3SlidingImagePanels/images/bg.jpg)
+    }
+    header{
+      padding: 20px 30px 10px 30px;
+      margin: 0px 20px 10px 20px;
+      position: relative;
+      display: block;
+      text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+      text-align: center;
+      font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif
+    }
+    h1{
+      font-size: 35px;
+      color: rgba(26,89,120,0.9);
+      padding: 0px 0px 5px 0px;
+      font-weight: 400;
+      line-height: 35px;
+    }
+    h1 span{
+      color: #7cbcd6;
+      text-shadow: 0px 1px 1px rgba(255,255,255,0.8)
+    }
+    p{
+      padding: 14px;
+      text-align: center;
+      margin: 0;
+    }
+    a{
+      display: inline-block;
+      font-size: 11px;
+      font-style: italic;
+      width: 60px;
+      height: 60px;
+      margin: 0px 3px;
+      line-height: 60px;
+      border-radius: 50%;
+      font-weight: 800;
+      box-shadow: 1px 1px 1px rgba(0,0,0,0.05) inset;
+      color: #fff;
+      text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+      background: rgba(104,171,194,0.5);
+    }
+
+
+
+    .banner{
+      width: 600px;
+      height: 400px;
+      margin: 0 auto;
+      position: relative;
+      border: 20px solid #fff;
+      box-shadow: 1px 1px 3px rgba(0,0,0,0.1);  
+      
+    }
+    .content{
+      width: 600px;
+      height: 400px;
+      object-fit: contain;
+      position: absolute;
+      left: -200%;    
+    }
+    
+    input:checked + .content{ 
+      left: 0;
+    }
+
+    input{
+      z-index: 100;
+      position: absolute;
+    }
+    .img1{
+      left: 0;
+      top: 350px;
+    }
+    .img2{
+      left: 150px;
+      top: 350px;
+    }
+    .img3{
+      left: 300px;
+      top: 350px;
+    }
+    .img4{
+      left: 450px;
+      top: 350px;
+    } 
+    h3{
+      color: #fff;
+      text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+    } 
+    h3 span{
+      z-index: 300;
+      position: absolute;
+      width: 100%;
+      font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
+      left: 0;
+      text-align: center;
+    }
+    h3 span:nth-child(1){
+      font-size: 70px;
+      letter-spacing: 7px;
+      top: 200px;
+    }
+    h3 span:nth-child(2){
+      top: 50%;
+      padding: 10px 0;
+      margin-top: 84px;
+      font-size: 15px;
+      background-color: rgba(104,171,194,0.9);
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>
+      Sliding Image Panels 
+      <span>
+        with CSS3
+      </span>
+    </h1>
+    <p>
+      <a>Demo 1</a>
+      <a>Demo 2</a>
+      <a>Demo 3</a>
+      <a>Demo 4</a>
+    </p>
+  </header>
+
+  <div class="banner">
+
+    <input type="radio" name="bar" id="" class="img1" checked>
+    <div class="content">
+      <img src="https://tympanus.net/Tutorials/CSS3SlidingImagePanels/images/1.jpg">
+      <h3>
+        <span>Serendipity</span>
+        <span>What you've been dreaming of</span>
+      </h3>
+    </div>
+
+    
+    <input type="radio" name="bar" id="" class="img2">
+    <div class="content">
+      <img src="https://tympanus.net/Tutorials/CSS3SlidingImagePanels/images/2.jpg">
+      <h3>
+          <span>Adventure</span>
+          <span>Where the fun begins</span>
+        </h3>
+    </div>
+
+    <input type="radio" name="bar" id="" class="img3">
+    <div class="content">
+      <img src="https://tympanus.net/Tutorials/CSS3SlidingImagePanels/images/3.jpg">
+      <h3>
+          <span>Nature</span>
+          <span>Unforgettable eperiences</span>
+        </h3>
+    </div>
+
+    <input type="radio" name="bar" id="" class="img4">
+    <div class="content">
+      <img src="https://tympanus.net/Tutorials/CSS3SlidingImagePanels/images/4.jpg">
+      <h3>
+          <span>Serenity</span>
+          <span>When silence touches nature</span>
+        </h3>
+    </div>
+  </div>
+</body>
+</html>

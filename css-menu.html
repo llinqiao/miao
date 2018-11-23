@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    ul{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: inline-block;
+    }
+    .mainMenu{
+      background-color: red;
+    }
+    .mainMenu>li{
+      display: inline-block;
+      font-size: 25px;
+      color: white;
+      margin: 0 15px;
+      
+    }
+    .mainMenu>li:hover{
+      height: 100%;
+      background-color: white;
+      color: red;
+    }
+    ul li{
+      position: relative;
+      
+    }
+    ul ul{
+      display: none;
+      position: absolute;
+      font-size: 16px;
+    }
+   
+    ul li ul li{
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+   
+    li:hover>ul{
+      display: block;
+    }
+    li:hover {
+      background-color: blue;
+    }
+
+    ul ul ul {
+      top: 0;
+      left: 100%;
+      white-space: nowrap;
+    }
+    ul ul ul li{
+      margin-left: 0;
+      margin-top:0;
+    }
+  </style>
+</head>
+<body>
+  <ul class="mainMenu">
+    <li>代码库</li>
+    <li>设计素材
+      <ul>
+        <li>高清图片</li>
+        <li>矢量</li>
+        <li>PSD分层
+            <ul>
+              <li>高清图片</li>
+              <li>矢量</li>
+              <li>PSD分层</li>
+              <li>图样</li>
+            </ul>
+        </li>
+        <li>图样  </li>
+        <li>字体</li>
+        <li>音效素材</li>
+        <li>3D素材</li>
+      </ul>
+    </li>
+    <li>佳品欣赏</li>
+    <li>原创作品
+      <ul>
+        <li>高清图片</li>
+        <li>矢量</li>
+        <li>PSD分层</li>
+        <li>图样  </li>
+        <li>字体</li>
+        <li>音效素材</li>
+        <li>3D素材</li>
+      </ul>
+    </li>
+    <li>设计趋势</li>
+  </ul>
+</body>
+</html>
