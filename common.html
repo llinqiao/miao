@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    html,body,.layout{
+      width: 100%;
+      xheight:100%;
+      margin: 0;
+    }
+    .layout{
+      border: 2px solid;
+      overflow: hidden;
+    }
+    .layout>*{
+      padding-bottom: 2000px;
+      margin-bottom: -2000px;
+    }
+    aside{
+      width: 100px;
+      height: 200px;
+      background-color: tan;
+      float: left;
+    }
+
+    main{
+      height: 100%;
+      background-color: aqua;
+      overflow: hidden;
+    }
+
+    section{
+      width: 100px;
+      height: 150px;
+      float: right;
+      background-color: blueviolet;
+    }
+    
+    article{
+      width: 100px;
+      height: 200px;
+      float: right;
+      background-color: blue;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="layout">
+    <aside></aside>
+    <section></section>
+    <article></article>
+    <main>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo veniam assumenda explicabo aperiam quod nesciunt praesentium, distinctio harum quisquam amet necessitatibus reiciendis non tempore magnam temporibus! Doloremque corporis aliquam eos? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae laboriosam maxime molestias blanditiis neque ut voluptas suscipit dolores esse. Hic quod necessitatibus explicabo odio cupiditate! Natus eaque voluptatem ipsum quae.</main>
+  </div>
+</body>
+</html>
