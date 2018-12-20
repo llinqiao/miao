@@ -148,7 +148,7 @@
 <script id="ch0103/09" type="3.09">
 	var r = prompt();
 	var diameter = 2 * r;
-	var area = 1/2 * 3.14159 * r * r;
+	var area = 3.14159 * r * r;
 	var circumference = 3.14159 * diameter;
 	console.log(diameter.toFixed(4),circumference.toFixed(4),area.toFixed(4))
 </script>
@@ -322,7 +322,7 @@
 	}
 </script>
 
-<script id="ch0104/10" type="3.10"> 
+<script id="ch0104/10" type="3.10">
 	var a = prompt();
 	var b = prompt();
 	if((a<60&&b<60)||(a>60&&b>60)){
@@ -347,7 +347,7 @@
 	var Walk =meter/1.2;
 	if(Bike>Walk){
 		console.log("Walk");
-	}else(Bike<Walk){
+	}else if(Bike<Walk){
 		console.log("Bike");
 	}else{
 		console.log("All");
@@ -384,13 +384,16 @@
 </script>
 
 <script id="ch0104/15" type="3.15">
-	var num = prompt();
-	var arr = num.split(" ");
-	var soutNum = function(a,b){
-		return a - b;
+	var a = prompt();
+	var b = prompt();
+	var c = prompt();
+	if(a>b&&a>c){
+		console.log(a);
+	}else if(b>a&&b>c){
+		console.log(b);
+	}else{
+		console.log(c);
 	}
-	arr = arr.sort(soutNum);
-	console.log(arr[2])
 </script>
 
 <script id="ch0104/16" type="3.16">
@@ -440,5 +443,25 @@
 		console.log(num1*num2);
 	}else{
 		console.log(num1/num2)
+	}
+</script>
+
+<script id="ch0104/20" type="3.20">
+	var a = prompt();
+	var b = prompt();
+	var c = prompt();
+	var d = Math.sqrt(b * b - 4 * a * c);
+	var x1, x2;
+	if (d == 0) {
+		x1 = x2 = (-b / 2 * a).toFixed(5);
+		console.log("x1" + "=" + x1 + ";" + "x2" + "=" + x2)
+	} else if (d > 0) {
+		x1 = ((-b + Math.sqrt(b * b - 4 * a * c)) / (2 * a)).toFixed(5);
+		x2 = ((-b - Math.sqrt(b * b - 4 * a * c)) / (2 * a)).toFixed(5);
+		console.log("x1" + "=" + x1 + ";" + "x2" + "=" + x2)
+	} else {
+		var real = (-b / 2 * a).toFixed(5);
+		var inscriber = (Math.sqrt(-(b * b - 4 * a * c)) / (2 * a)).toFixed(5) + "i"
+		console.log("x1" + "=" + real + "+" + inscriber + ";" + "x2" + "=" + real + "-" + inscriber)
 	}
 </script>
