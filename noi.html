@@ -812,7 +812,7 @@
 	}
 	var sevenNumebr = String(Math.floor(i / 49 )% 7)+ String(Math.floor(i / 7) % 7 )+String(i % 7);
 	var  nineNumber = String(i % 7) + String(Math.floor(i / 7) % 7 )+String(Math.floor(i / 49 )% 7)
-	console.log(i+"\n"+sevenNumebr+"\n"+nineNumber);
+	console.log(i+" "+sevenNumebr+" "+nineNumber);
 </script>
 
 
@@ -829,6 +829,7 @@
 			date += 1;
 		}
 	}
+	console.log(date)
 </script>
 
 <script id="ch0105/27" type="5.27">
@@ -846,7 +847,12 @@
 	var n = prompt();
 	var result = "";
 	for (var i = n.length-1;i>=0;i--){
-		result = result + n[i]+" "
+		if(i>0){
+			result = result + n[i]+" "
+		}else{
+			result = result +n[i]
+		}
+		
 	}
 	console.log(result)
 </script>
@@ -891,7 +897,7 @@
 	}
 </script>
 
-<script id="ch0105/31">
+<script id="ch0105/31" type="5.31">
 	var N = +prompt();
 	var M = +prompt();
 	var light = {};
