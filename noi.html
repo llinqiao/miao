@@ -812,7 +812,7 @@
 	}
 	var sevenNumebr = String(Math.floor(i / 49 )% 7)+ String(Math.floor(i / 7) % 7 )+String(i % 7);
 	var  nineNumber = String(i % 7) + String(Math.floor(i / 7) % 7 )+String(Math.floor(i / 49 )% 7)
-	console.log(i+" "+sevenNumebr+" "+nineNumber);
+	console.log(i+"\n"+sevenNumebr+"\n"+nineNumber);
 </script>
 
 
@@ -922,8 +922,107 @@
 		}
 	}
 	console.log(result)
+</script>
+<script id="ch0105/32" type="5.32">
+	var n = +prompt();
+	var result = 2 / 1;
+	var p = 1;
+	var q =2;
+	var number;
+	for (var i = 2; i <= n; i++) {
+		q = p + q;
+		p = q - p;
+		number = q/p;
+		result = result + number;
+	}
+	console.log(result.toFixed(4))
+</script>
 
+<script id="ch0105/33" type="5.33">
+	var n = +prompt();
+	 var result = 0
+	for(var i=1;i<=n;i++){
+		result = result +Math.pow(-1,i-1)*1/i;
+	}
+	console.log(result.toFixed(4));
+</script>
+
+<script id="ch0105/34" type="5.34">
+	var n = +prompt();
+	var sum = 0;
+	for (var i = 1; i <= n; i++) {
+		var result = 1;
+		for (var j = 1; j <= i; j++) {
+			result = result * j;
+		}
+		sum = sum + result;
+	}
+	console.log(sum);
+</script>
+
+<script id="ch0105/35" type="5.35">
+	var n = +prompt();
+	var e = 0;
+	var sum = 1;
+	for (var i = 1; i <= n; i++) {
+		var result = 1;
+		for (var j = 1; j <= i; j++) {
+			result = result * j;
+			if (j == i) {
+				result = 1 / result
+			}
+		}
+		sum = sum + result
+	}
+	console.log(sum.toFixed(10))
 
 </script>
-<script id="ch0105/32"></script>
-<script id="ch0105/33"></script>
+
+<script id="ch0105/36" type="5.36">
+	var x = +prompt();
+	var n = +prompt();
+	var sum = 0;
+	var result;
+	for(var i = n;i>=0;i--){
+		result = Math.pow(x,i);
+		sum += result;
+	}
+	console.log(sum.toFixed(2))
+</script>
+
+<script id="ch0105/37" type="5.37" >
+	//注意变量之后运算的值
+	var M = +prompt();
+	var N = +prompt();
+	var X = +prompt();
+	var energy = 0;
+	for (var i = X; i >= 0; i--) {
+		if (energy >= M) {
+			energy = 0;
+			while (M >= 0) {
+				if (M < N) {
+					break;
+				} else if (M - N >= 0) {
+					M = M - N;
+					N = N + 1;
+				}
+			}
+			M = 5;
+		} else {
+			energy = energy + N
+		}
+	}
+	console.log(N)
+
+</script>
+<script id="ch0105/38"></script>
+<script id="ch0105/39" type="5.39">
+	var n = +prompt();
+	sum = 0;
+	for (var i = 1;i<=n;i++){
+		if(i%7!=0&&i%10!=7&&Math.floor((i/10))!=7){
+			sum = sum + i*i
+		}
+	}
+	console.log(sum)
+</script>
