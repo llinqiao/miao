@@ -671,7 +671,6 @@
 			console.log("Impossible")
 		}
 	}
-	
 </script>
 
 
@@ -686,6 +685,19 @@
 	}
 	console.log(result)
 </script>
+//a=a+b,b=a-b,
+
+<!-- <script>
+	var a = 1;
+	var b = 1;
+	console.log(a);
+	console.log(b);
+	for (var i = 0; i < 20;i++) {
+		a = a + b;
+		b = a - b;
+		console.log(a)
+	}
+</script> -->
 
 <script id="ch0105/18" type="5.18">
 	var n = +prompt();
@@ -815,8 +827,25 @@
 	console.log(i+"\n"+sevenNumebr+"\n"+nineNumber);
 </script>
 
+/*for (var i = 81; i <= 350; i++) { -->
+	var n = i
 
-<script id="ch0105/26" type="5.26">
+	d70 = n % 7
+	d71 = (n - d70) / 7 % 7
+	d72 = (n - d70 - d71 * 7) / 7 / 7 % 7
+
+	d90 = n % 9
+	d91 = (n - d90) / 9 % 9
+	d92 = (n - d90 - d91 * 9) / 9 / 9 % 9
+
+	if ((d70 == d92) && (d71 == d91) && (d72 == d90)) {
+	console.log(i)
+	console.log('' + d72 + d71 + d70)
+	console.log('' + d92 + d91 + d90)
+	}
+	}*\
+
+	<script id="ch0105/26" type="5.26">
 	var n = +prompt();
 	var date = 0;
 	for(var i = 0; i<n;i++){
@@ -832,7 +861,7 @@
 	console.log(date)
 </script>
 
-<script id="ch0105/27" type="5.27">
+	<script id="ch0105/27" type="5.27">
 	var k = +prompt();
 	var Sn = 1+1;
 	var i = 2;
@@ -843,7 +872,7 @@
 	console.log(i-1)
 </script>
 
-<script id="ch0105/28" type="5.28">
+	<script id="ch0105/28" type="5.28">
 	var n = prompt();
 	var result = "";
 	for (var i = n.length-1;i>=0;i--){
@@ -857,7 +886,7 @@
 	console.log(result)
 </script>
 
-<script id="ch0105/29" type="5.29">
+	<script id="ch0105/29" type="5.29">
 	var n = prompt();
 	var result = "";
 	if (n[0] === "-") {
@@ -877,7 +906,7 @@
 	}
 </script>
 
-<script id="ch0105/30" type="5.30">
+	<script id="ch0105/30" type="5.30">
 	var m = prompt();
 	var k = prompt();
 	var date = 0;
@@ -897,33 +926,53 @@
 	}
 </script>
 
-<script id="ch0105/31" type="5.31">
-	var N = +prompt();
-	var M = +prompt();
-	var light = {};
-	var result = 1;
-	for (var i = 1; i <= N; i++) {
-		light[i] = "close";
-	}
-	for (var i = 1; i <= N; i++) {
-		for (var j = 2; j <= M; j++) {
-			if (i % j === 0) {
-				if (light[i] === "open") {
-					light[i] = "close";
-				} else if (light[i] === "close") {
-					light[i] = "open";
+	<script id="ch0105/31" type="5.31">
+		var N = +prompt();
+		var M = +prompt();
+		var light = {};
+		var result = 1;
+		for (var i = 1; i <= N; i++) {
+			light[i] = "close";
+		}
+		for (var i = 1; i <= N; i++) {
+			for (var j = 2; j <= M; j++) {
+				if (i % j === 0) {
+					if (light[i] === "open") {
+						light[i] = "close";
+					} else if (light[i] === "close") {
+						light[i] = "open";
+					}
 				}
 			}
 		}
-	}
-	for (var i = 1; i <= N; i++) {
-		if (light[i] === "close"&&i>1) {
-			result = result + "," + i
+		for (var i = 1; i <= N; i++) {
+			if (light[i] === "close" && i > 1) {
+				result = result + "," + i
+			}
 		}
-	}
-	console.log(result)
-</script>
-<script id="ch0105/32" type="5.32">
+		console.log(result)
+
+		/*
+		var l = +prompt()//灯的数量
+		var p = +prompt()//人的数量
+		var turn
+
+		for(var lightNum = 1; lightNum <= l; lightNum++) {
+			turn = 0//当前灯被处理的次数
+			for(var pNum = 1; pNum <= lightNum 此人有可能处理这个灯 && pNum <= p人的编号小于所有人的数量; pNum++) {
+				if (lightNum % pNum == 0) {//此人将会处理这个灯
+					turn++
+				}
+			}
+
+			if (turn % 2 === 1) {
+				console.log(lightNum)
+			}
+		}
+		*/
+	</script>
+
+	<script id="ch0105/32" type="5.32">
 	var n = +prompt();
 	var result = 2 / 1;
 	var p = 1;
@@ -938,7 +987,7 @@
 	console.log(result.toFixed(4))
 </script>
 
-<script id="ch0105/33" type="5.33">
+	<script id="ch0105/33" type="5.33">
 	var n = +prompt();
 	 var result = 0
 	for(var i=1;i<=n;i++){
@@ -947,7 +996,7 @@
 	console.log(result.toFixed(4));
 </script>
 
-<script id="ch0105/34" type="5.34">
+	<script id="ch0105/34" type="5.34">
 	var n = +prompt();
 	var sum = 0;
 	for (var i = 1; i <= n; i++) {
@@ -960,7 +1009,7 @@
 	console.log(sum);
 </script>
 
-<script id="ch0105/35" type="5.35">
+	<script id="ch0105/35" type="5.35">
 	var n = +prompt();
 	var e = 0;
 	var sum = 1;
@@ -978,7 +1027,7 @@
 
 </script>
 
-<script id="ch0105/36" type="5.36">
+	<script id="ch0105/36" type="5.36">
 	var x = +prompt();
 	var n = +prompt();
 	var sum = 0;
@@ -990,7 +1039,7 @@
 	console.log(sum.toFixed(2))
 </script>
 
-<script id="ch0105/37" type="5.37" >
+	<script id="ch0105/37" type="5.37">
 	//注意变量之后运算的值
 	var M = +prompt();
 	var N = +prompt();
@@ -1013,10 +1062,11 @@
 		}
 	}
 	console.log(N)
+	</script>
 
-</script>
-<script id="ch0105/38"></script>
-<script id="ch0105/39" type="5.39">
+	<script id="ch0105/38"></script>
+
+	<script id="ch0105/39" type="5.39">
 	var n = +prompt();
 	sum = 0;
 	for (var i = 1;i<=n;i++){
@@ -1026,3 +1076,50 @@
 	}
 	console.log(sum)
 </script>
+
+	<script id="ch0105/42" type="5.42">
+		var x = +prompt();
+		var y = +prompt();
+		var symbol = prompt();
+		var padding = +prompt();
+		var result = "";
+		for (var i = 0; i < y; i++) {
+			if (padding === 1) {
+				for (var j = 0; j < x; j++) {
+					result += symbol;
+				}
+			} else {
+				if (padding === 0) {
+					for (var j = 0; j < x; j++) {
+						if (i === 0 || i === y - 1) {
+							result += symbol;
+						} else {
+							if (j === 0 || j === x - 1) {
+								result += symbol;
+							} else {
+								result += " "
+							}
+						}
+					}
+				}
+			}
+			if (i != y - 1) {
+				result += "\n"
+			}
+		}
+		console.log(result)
+	</script>
+
+	<script id="ch0105/43" type="5.43">
+		var n = +prompt();
+		var max = 0;
+		for (var i = 2; i <= n; i++) {
+			if (n % i === 0) {
+				n = n / i;
+				if (i > max) {
+					max = i
+				}
+				i--;
+			}
+		}
+	</script>

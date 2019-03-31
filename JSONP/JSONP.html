@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  function jsonp (url,callback){
+  var callbackName = 'JSONP_CALLBACK_' + Date.now() + "_" + Math.random().toString().slice(2)//创建独立的回调函数名字
+  window[callbackName] = callback//在全局声明一个变量为这个callback函数,可以自己写一个函数处理callback错误
+  url = url + "&callback=" + callbackName
+  var script = document.createElement('script')
+  var  runned = false
+  script.src = url 
+  script.onload = function(){
+    document.head.removeChild(script)//加载完成之后删除节点，可以请求多个
+    delete window[callbackName]//清除变量名
+  }
+  
+
+  document.head.appendChild(script)//加载这个script会自动调callback函数
+
+}
+  </script>
+</body>
+</html>
+  

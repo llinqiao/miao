@@ -21,10 +21,11 @@
 (1)div元素和h1元素
 (2)div有class属性和id属性为"abc"的元素
 (3)ul里面的li,li里面的所有div元素
-(4)body元素中被激活的元素
+(4)body元素中被激活的元素(鼠标在其范围内按下未松开)
 (5)div被hover他元素最后面的伪元素
-(6)文档中被高亮的部分，常用来做元素被选中的高亮
-(7)元素id与url片段匹配到的元素
+(6)文档中被高亮的部分
+常用来做元素被选中的高亮
+(7)元素id与url片段匹配到的元素，选中id的值为地址栏中#后面的部分的元素 
 (8)input的第一个兄弟元素ul的第一个兄弟元素p标签，p标签的所有邻近元素span元素
 
 02. 分别写出如下几个选择器的优先级
@@ -35,17 +36,18 @@
     fieldset legend + input {}
     #some #thing :hov.noter .abc:hover {}
     ```
-    答：0，2，10，3，240
+    答：0000，0002，0011，0003，0240
   
 03. https://www.example.com/a/b/ 页面中有如下代码
     ```html
     <link rel="stylesheet" href="//test.example.com/path/../the/../path/c.css">
     ```
     请问最终引入的c.css的完整路径是什么？
-    答：https://www.example.com/a/test.example.com/path/../the/../path/c.css
+    答：https://test.example.com/path/c.css">
 
 04. `em,px,rem,vw,vh` 分别代表多长？
-    em为父元素字体的倍数，px是屏幕物理像素，rem是跟元素的字体大小的倍数，vw是视口宽度的百分之一，vh是视口高度的百分之一
+    em为父元素字体的倍数，px，一个css像素，在网页不放大的时候一个操作系统像素，在系统分辨率跟显示器的物理分辨率相同时，它是一个物理理想像素点的大小，
+    rem是根元素的字体大小的倍数，vw是视口宽度的百分之一，vh是视口高度的百分之一
 05. 显示器的物理分辨率为 `1920x1080`，操作系统设置的分辨率为 `1280x720`，网页的放大倍数为 `110%`，请计算一个 CSS 像素对应多少个显示器物理像素（面积与长度）？
     答：长度为1.65，面积1.65的平方
 
@@ -77,21 +79,25 @@
       </section>
     </body>
     ```
-    答:Brown:300px,qucik:24px,over dog:36px,lazy:54px,sucks:200px
+    答:Brown:300px,qucik,jumps:24px,over dog:36px,lazy:54px,sucks:200px
 
 
 
-07. 字体的 italic 与 obsolete 的区别是？
-答：对于没有italic斜体的字体会用obsolete倾斜的字体
+07. 字体的 italic 与 oblique 的区别是？
+答：italic :专门设计的斜体样式的字体
+    oblique ：通过整体倾斜得来的斜体字
+    obsolete：废弃了的
+
+对于没有italic斜体的字体会用obsolete倾斜的字体
 
 08. 写出满足如下条件的选择器
     * 第  8个子结点之后，倒数第 5 个子结点之前的li结点
     * 【类名】以“damiao-”开头的元素
     * rel 属性中有 nofollow 这个单词的标签
 
-  答：li:nth-child(n+9):nth-last-child(-n+5)
-      [class="damiao-*"]
-      [rel="nofollow"]
+  答：li:nth-child(n+9):nth-last-child(n+5)
+      [class*=" damiao-"]，[class^="damiao-"]
+      [rel~="nofollow"]
 
 
 09. 链接伪类的几种状态书写的顺序是什么？为什么？
@@ -101,24 +107,33 @@
     * font: serif bold 24px/1.2;
     * font: bold 24px/1.2 serif;
 
- 答：font: bold 24px/1.2 serif;？
+ 答：font: bold 24px/1.2 serif;
+ font:[<font-style>||<font-weight>||<font-variant>]<font-size>||[/<line-height>]<ff>
 
 11. vertical-align 取 middle 时元素如何对齐？
-答：对齐元素所在行框的中间，当单独的一个元素的行框时对齐x下边偏移一点的位置
+答：
+对于行内或行内块元素：
+  该元素的行内框垂直中点与匿名文本x中点对齐
+对于表单元格元素：
+  表单元格的内容在单元格中垂直居中
+
 
 12. 什么是 baseline？
-答：每个行内框组成的行框用于对齐的基线
+答：基线，对于文本来说文字下方，对齐x字符中点为基线，
+对于图片及行内块元素来说，往往会将其margin-box下边缘作为基线
 
 13. 详述你对盒模型的理解。
 答：一个盒模型包括content，padding,border,margin.盒模型的实际宽高为content+padding+border,盒子所占的空间为加上margin，ie盒子模型为border-box，w3c标准盒子模型为content-box
-
+    交互性，元素的范围，边框的形状：梯形，透过padding可以看见元素的背景
 14. 如何让一个元素可被 focus？如何去掉其被 focus 时的虚框？
 
-答：给元素添加一个属性autofocus，outline：none
+答：tableindex-1，outline：none
 
 15. 如何给css添加注释
 答：/*xxx*/
-
+    利用css的解析特性，我们也可以通过其他的手段来实现注释
+    修改属性名为unknow property
+    修改属性值为 invlid property value
 16. 指出如下css代码中的错误
     ```
     p,h1,{
@@ -130,9 +145,15 @@
     }
     ```
   答：选择器不能以，结尾;rgb中的颜色需要，分隔开;font-varient不存在这个属性，font-variant把小写字母显示成小一号的大写字母；color;字体样式不需要双引号，25px指定不明确
+      颜色不能为五位
 
 17. 元素的高度写百分比在什么情况下【无效】，为什么？在什么情况下【有效】，有效时是以哪个元素的高度为基准值？
+
 答：元素为行内元素设置高度无效，父元素没有指定高度，百分比是继承的，行内元素设置高度没用，父元素有高度且不为行内元素。
+    
+    有效：
+    1.父元素高度写死的情况
+    2.子元素定位的时候（此时父元素高度不写都可以），且子元素的高度是根据父元素的实际高度计算出来的
 
 18. 解释 box-sizing 可以取哪些值，以及每个值的意义
 答：content-box，盒子为内容宽度；border-box:盒子为content，padding，border三者之和宽度；inherit父元素的值
@@ -152,12 +173,18 @@
     </div>
 
 20. 如何在伪元素中插入换行符？如何让这个换行符在页面中生效？
-答：\a或者\A
+答：\a或者\A,white-space:pre;
 
 21. 简述 ie7 市场份额比 ie6 低的原因并在网络上找出目前各大浏览器在中国和全球的市场份额
+答：ie6是win xp自带的浏览器，很多老永华不愿意/能升级
+    ie7无法安装在windows vista及以上的系统中
+
 
 22. 页面有无 `doctype` 声明会有什么区别？
-答：xml关系
+答：
+    有doctype：标准模式渲染
+    无doctype：怪异模式渲染
+    在ie6下，怪异模式会让box-sizing为border-box
 
 23. 有一张高为 100 宽为 50 的图片，内有一个直径为 40 的圆，其做为一个 200x200 的元素的背景图片，background-size 为 contain 和 cover 时，圆的直径分别为多少？
 答：contain:80,cover:160
@@ -165,24 +192,46 @@
 
 25. 给出至少 5 种水平垂直居中方案。
 答：行内块居中，定位的俩种居中，表格，flex，
+
 26. 简述 em 框，内容区，行内框，行框的构成以及其需要注意的问题。
-答：首先他们会以基线对齐，vertical-align的值来移动元素改变行框的值，最后确定行框
+答：
+em框：文字框，高度时字号，字形是可能超出em框的
+内容区：em框串起来形容的内容区
+行内框：
+  inline元素：行高框与内容框区垂直中点对齐
+  inline0替换元素：margin-box
+  inlin-block：margin-box
+行框：包裹该行所有行内的的最小框
+需要注意的问题：
+  baseline问题
+  行内元素垂直方向的框属性都不影响区布局
+  vertical-align的好几个值的工作
 
 27. 如何确定一个行内框的baseline及其最高点和最低点？
-答：文本在文字中间偏下，替换元素在最底部
+
+答：
+    inline元素：文字的baseline，行高框的最高点和最低点
+    其他行内元素：最后一行内容的baseline，margin-box的上边缘和下边缘
 
 28. `td` 元素的 `headers` 属性是干嘛的？
-答：headers属性会将表格中的一个表头单元格和一个数据单元格联系起来。
+答：
+  headers属性会将表格中的一个表头单元格和一个数据单元格联系起来。
+  有助于读屏软件读取单元格的表头，它是一个空格分隔的th的id的列表
 
 29. color 这个属性有什么需要注意的地方？
-答：
+答：各处颜色都可能会直接用color值作为默认值 css3里有一个currentColor可以得到color的值
 
 30. 如何理解 inline-block 元素？它有什么需要注意的地方？
-答：从里面看是一个块状元素，从外面看是一个行内元素，行内块的baseline
+答：从里面看是一个块状元素，从外面看是一个行内元素，
+  考虑它自身位置的时候，当成行内元素来看，考虑其内部元素的布局时，认为内部元素处于一个块级元素里
+  需要注意的地方：
+    没有内容的时候与有内容时baseline不一样
+    它自身触发bfc
 
 31. 什么是 CSS Sprite？为什么要使用 CSS Sprite？它有哪些优缺点？
 答：页面初始样式设置，因为页面中很多样式不需要一般默认的设置;为了提高下载时间，但是首屏网页渲染会有延迟
-
+正解：css精灵/雪碧，节省文件的大小（拼接文件会使总体积变小）节省网络流量（下载一张图比下载多张图节省流量），加快速度，图标的出现不会闪烁
+      缺点：不能是动图，不方便维护，放大后不清晰。现代方案：字体图标，svg图标（支持动画）
 32. 找出如下代码中的错误
     ```
     <style>
@@ -199,7 +248,7 @@
       <a href="mi.com”>小米网<a>
     </div>
     ```
-答：伪元素不能hover效果，标签未闭合，:visited伪类选择器需要先声明:link
+答：伪元素不能hover效果，opacity不能为百分比，标签未闭合，steps，:visited不能改变字体，地址存在错误
 
 33. 如下内容渲染在【同一行】中，请计算那一行的理论行高
     ```html
@@ -253,11 +302,22 @@
     ```
 
 34. `vertical-align` 取值为 `baseline` 时在不同情况下分别是如何对齐的？
+答：
+行内块元素：
+  有内容:按最后一行内容的基线，overflow：hidden
+  无内容：
+替换元素：
+行内元素：baseline对着匿名文本的baseline
 35. 解释常规流与包含块的概念
 答：就是元素的父元素内容区，父元素的content-box
-
+正解：常规流：如果一个元素没有定位，没有浮动，那么它就就处于常规流
+处于常规流中的元素默认会从上到下，从左往右摆放，且不会重叠，（使用负margin的情况除外），一个元素会跟着它前面的元素摆放（布局），它会影响后面的元素摆放
+      包含块：包含块是一个元素的布局上下文：即为一个元素的布局除自身属性以外，仅受其包含块的影响。此模型可以将布局行为限定在一个范围内，更方便思考
+      不同情况下一个元素的包含块是以不同方式确定的：常规流元素，其最近的块级祖先，绝对定位是其定位祖先，固定定位元素：视口，绝对定位时，无法找到定位祖先；根元素，浮动同常规流
 36. 在各种情况下，一个元素的包含块分别是什么？
 答：body元素，单个元素的时候；父元素的content-box
+
+
 37. 默写与背景相关的属性并说明每个属性的作用和会产生的效果
 答：background-size：图片大小；
 background-repeat:是否平铺；
@@ -268,39 +328,68 @@ background-image：图片地址；
 background-attachment：图片跟随元素的滚动
   
 38. 如何实现单方向的盒子阴影？
-
+问题缘由：阴影一旦模糊，其面积会大于所属元素；
+使用负的扩散半径会让阴影面积比所属元素小
 答：box-shadow：0 5px 5px -5px red ，设置单方向一个为0，一个为数值，然后设置模糊半径等于绝对值相等的负的扩散半径
 
 39. 默写与表格布局相关的 CSS 属性，并说明相关属性的作用
 
-答：border-collapse:collapse表格边框合并
+答：border-collapse:separate/collapse表格边框合并
     display：table-cell设置单元格
+    tabel-layout:fixed/auto
+    empty-cells:show/hidden
+    caption-side:top/bottomborder-spacing:h v;
+
+
 
 40. `visibility:hidden`，`display:none`，`opacity:0`分别有什么不同？
 答：一个是让元素不可见，第二个是直接在文档流中不显示这个元素，一个是把元素的设置为透明。
-
+  正解：
+  visiblity:hidden/collapse
+    元素消失，但位置保留，无法交互
+    在表格行/列/行组/列组中使用时：
+    hidden是隐藏表格保留位置
+    collapse是不保留位置，相当于display：none；
+  display:none
+    元素从常规流中消失，也不可见
+  opacity：0
+    透明度为0，可交互，可选中
 41. 当页面中出现表示时间的文字但表意不明确时，比较优雅且富有语义的做法是什么？
-
+答：<time datetime=""></time>
 42. CSS 中一般为何不使用 `cm`，`mm` 等长度单位？
-
+答：第一不符合预期。第二：屏幕一般不使用实际的长度而是像素单位
 43. 表格布局中各层的层次是？
 答：table>table-caption>table-header-group>table-row-group>table-footer-group>table-cell
 
 44. 为什么要在文件的最后一行加一个回车？
+答：便于后续编辑，文件在拼接时不会出错，diff不会存在额外的信息
 
 45. 用 CSS 画出一个半圆形，分别给出实心与空心的的画法。实心和空心分别给出两种方案。
+答：border-radium：999px 999px 0 0
+
+
+
+
+
+
+
 
 46. 表单元素有哪些伪类选择器？
 答:focus，:checked :disabled;
 47. 如何禁用 textarea 元素默认的可缩放行为？
-答：style="resize:none;" 
+
+答：style="resize:none/both/horizontal/vertical;" 
 48. reset与normalize分别是什么，区别是什么，何种场景会使用到？
+答：reset：
+        是一套用于把页面的样式统一成一个特定风格的css代码
+    normalize:
+        是用来让浏览器显示页面尽量接近各浏览器默认的样式的
 
 49. 表布局中边框合并的原则是什么？
 答：hidden>none>大小>样式>td>tr>tbody>col>colgroup>table
 
 50. 如何让背景图片从元素的左下角向上偏移5像素，往右偏移3像素；图片不重复平铺？写出代码。
-答：background-position：-3px -5px；background-repeat:no-repeat
+答：background-position：left 3px bottom 5px；background-repeat:no-repeat
 
 51. 写出创建如下目录结果的命令行脚本（注：有扩展名的为文件，没有扩展名的为文件夹）。
     ```
@@ -320,7 +409,28 @@ background-attachment：图片跟随元素的滚动
   答：mkdir a,touch readme.md,cd a->mkdir foo bar
 52. 中英互翻
 
-    omit，multiple，驼峰式，中划线式，layout，typo，code review，半径，config，集合，矩形，binary，decimal，十六进制，八进制，SEO，HTML实体，语义化，兼容性，quirk，reference，大小写敏感，别名
-
+    omit 省略
+    multiple 多个，乘法
+    驼峰式 
+    中划线式
+    layout
+    typo
+    code review
+    半径
+    config
+    集合
+    矩形
+    binary
+    decimal
+    十六进制
+    八进制
+    SEO
+    HTML实体 html entity
+    语义化 
+    兼容性 compati
+    quirk 怪异
+    reference 引用
+    大小写敏感  case senst
+    别名 
 
     
